@@ -1,0 +1,24 @@
+타겟넘버 dfs문제 유형이다 재귀함수를 이용하여 풀었다
+
+```javascript
+function solution(numbers, target) {
+    var answer = 0;
+    
+    function dfs(index, sum) {
+        if (index === numbers.length) {
+            if (sum === target) {
+                answer += 1;
+            }
+            return;
+        }
+        
+        dfs(index + 1, sum + numbers[index]);
+        dfs(index + 1, sum + numbers[index] * -1);
+    }
+    
+    dfs(1, numbers[0]);
+    dfs(1, numbers[0] * -1);
+    
+    return answer;
+}
+```
